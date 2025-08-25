@@ -4,9 +4,17 @@ public class Player : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public float velocidade = 0;
-    public float y =  - 6.78f;
-    public float x = -4.341884f;
-    public int n = 1;
+    public float y; 
+    public float x;
+    public int n = 0;
+
+    Vector3 vect;
+
+    void Start()
+    {
+       vect = transform.position;   
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -21,16 +29,19 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (transform.position.y == - 1 )
+        if (collision.CompareTag("Abismo"))
         {
-            transform.position = new Vector2(x, y);
-            
+            transform.position = vect;
+         Debug.Log("Parabéns !! Você pegou:");
+        
         }
         if (collision.gameObject.name.Contains("Biscoito") == true)
         {
             Destroy(collision.gameObject);
             Debug.Log("Parabéns !! Você pegou:" + n++);
-        }
+
+     
+            }
     }
 
 }
