@@ -8,12 +8,13 @@ public class Player : MonoBehaviour
 
     TextMeshProUGUI texto;
     TextMeshProUGUI texto2;
+    Animator anime;
     Transform projetil;
     public float velocidade = 0;
     public float y; 
     public float x;
     public int n = 0;
-    int vida;
+    int vida = 4;
     public bool estaDireita = true;
     Vector3 vect;
 
@@ -23,8 +24,9 @@ public class Player : MonoBehaviour
         texto = GameObject.Find("Biscoito").transform.GetComponent<TextMeshProUGUI>();
         texto2 = GameObject.Find("Vida").transform.GetComponent<TextMeshProUGUI>();
         projetil = GameObject.Find("Tiro").transform;
-      vida = 4;
-       vect = transform.position;   
+        anime = transform.GetComponent<Animator>();
+        
+        vect = transform.position;   
         texto2.text = "Vida: <color=green> " + vida + " </color> ";
 
     }
@@ -64,14 +66,25 @@ public class Player : MonoBehaviour
                 Instanciado.GetComponent<Projetil>().direcao = new Vector2(-1, 0);
             }
         }
-        movimente = movimente * Time.deltaTime;
+        movimente = movimente * velocidade;
+        Debug.Log(movimente);
 
-        float pulo = Input.GetAxisRaw("Vertical") * Time.deltaTime;
+        float pulo = Input.GetAxisRaw("Vertical");
         
-        transform.position += new Vector3(movimente * velocidade, pulo * velocidade);
-       
-        
-    
+        transform.position += new Vector3(movimente * Time.deltaTime, pulo * velocidade * Time.deltaTime);
+
+     
+        if (movimente < 0.1f && movimente > -0.1f)
+        {
+            anime.SetBool("estaAndando", false);
+          
+        }
+
+        else
+        {
+            anime.SetBool("estaAndando", true);
+           
+        }
 
 
     }
@@ -96,12 +109,12 @@ public class Player : MonoBehaviour
         }
         if (collision.gameObject.name.Contains("Biscoito") == true)
         {
-
+            n++;
             Destroy(collision.gameObject);
             
-            Debug.Log("Parabéns !! Você pegou:" + n++);
+            //Debug.Log("Parabéns !! Você pegou:" + n++);
             
-            texto.text = "Biscoito: <color=yellow>"+ n++ +"</color>"; 
+            texto.text = "Biscoito: <color=yellow>"+ n +"</color>"; 
         }
     }
 
