@@ -398,9 +398,9 @@ GameObject:
   - component: {fileID: 185508080}
   - component: {fileID: 185508079}
   - component: {fileID: 185508078}
-  - component: {fileID: 185508081}
   - component: {fileID: 185508082}
   - component: {fileID: 185508083}
+  - component: {fileID: 185508084}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -506,23 +506,6 @@ Transform:
   - {fileID: 426744142}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &185508081
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 185508077}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f4739d62f12e27429689acba879fd79, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  velocidade: 5
-  y: -6.78
-  x: -4.341884
-  n: 0
-  estaDireita: 1
 --- !u!61 &185508082
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -591,6 +574,23 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &185508084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185508077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f4739d62f12e27429689acba879fd79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocidade: 5
+  y: 0
+  x: 0
+  n: 0
+  estaDireita: 1
 --- !u!1 &252953971
 GameObject:
   m_ObjectHideFlags: 0
@@ -5074,7 +5074,7 @@ GameObject:
   - component: {fileID: 1734731231}
   - component: {fileID: 1734731230}
   m_Layer: 0
-  m_Name: Square
+  m_Name: colisao
   m_TagString: Abismo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
