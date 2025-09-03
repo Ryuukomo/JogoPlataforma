@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
     public float y; 
     public float x;
     public int n = 0;
-    int vida = 4;
+    int vida;
     public bool estaDireita = true;
     Vector3 vect;
     bool chao = true;
@@ -26,9 +26,15 @@ public class Player : MonoBehaviour
         projetil = GameObject.Find("Tiro").transform;
         anime = transform.GetComponent<Animator>();
         
+<<<<<<< HEAD
         vect = transform.position;   
        
 
+=======
+        vect = transform.position;
+        vida = 4;
+texto2.text = "Vida: <color=green> " + vida + " </color> ";
+>>>>>>> 71efab0ebae6093094bc59f4bbf904782f810cbf
     }
 
     // Update is called once per frame
@@ -119,7 +125,13 @@ public class Player : MonoBehaviour
         {
             transform.position = vect;
             n = 0;
+<<<<<<< HEAD
 
+=======
+           
+            Debug.Log("Parabéns !! Você pegou:"); 
+            
+>>>>>>> 71efab0ebae6093094bc59f4bbf904782f810cbf
             vida--;
        
         
